@@ -1,19 +1,22 @@
-name: Mi Flujo de trabajo
+name: Deploy
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  transfer-files:
+  deploy:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Transfer files using scp
-        uses: appleboy/scp-action@master
-        with:
-          host: 192.168.0.83
-          username: root
-          password: ${{ secrets.SERVER_PASSWORD }}
-          source: "/prueba-centos"
-          target: "/home/jorge/pruebasgit"
+    - uses: actions/checkout@master
+    - name: Copiar el contenido del repositorio con scp
+      uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSHKEY }}
+      with:
+        source: "site/*"
+        target: "/home/jorge/pruebagit"
+        strip_components: 1
