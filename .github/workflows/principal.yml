@@ -6,18 +6,14 @@ on:
       - main
 
 jobs:
-  enviar-archivo:
+  transfer-files:
     runs-on: ubuntu-latest
     steps:
-    - name: Descargar archivo
-      uses: actions/checkout@v2
-      
-    - name: Enviar archivo
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        password: ${{ secrets.SERVER_PASSWORD }}
-        port: ${{ secrets.SERVER_PORT }}
-        source: ${{ github.event.head_commit.added }}
-        target: "/home/jorge/pruebagit"
+      - name: Transfer files using scp
+        uses: appleboy/scp-action@master
+        with:
+          host: 192.168.0.83
+          username: root
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "/prueba-centos"
+          target: "/home/jorge/pruebasgit"
