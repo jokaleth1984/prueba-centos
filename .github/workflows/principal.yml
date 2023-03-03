@@ -20,4 +20,4 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         port: ${{ secrets.SERVER_PORT }}
         source: ${{ github.event.head_commit.added }}
-        target: "/ruta-en-el-servidor"
+        target: "/home/jorge/pruebagit"
