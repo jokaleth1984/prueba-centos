@@ -1,0 +1,23 @@
+name: Mi Flujo de trabajo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  enviar-archivo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Descargar archivo
+      uses: actions/checkout@v2
+      
+    - name: Enviar archivo
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASSWORD }}
+        port: ${{ secrets.SERVER_PORT }}
+        source: ${{ github.event.head_commit.added }}
+        target: "/ruta-en-el-servidor"
