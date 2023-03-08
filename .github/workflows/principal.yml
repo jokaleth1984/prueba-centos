@@ -17,6 +17,6 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "prueba1000.txt"
-        target: "/home/ubuntu"
+        source: "jokaleth1984/prueba-centos/"
+        target: "deploy"
         strip_components: 1
