@@ -17,6 +17,6 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "tests/prueba1000.txt"
+        source: "prueba-centos/prueba1000.txt"
         target: "test"
         strip_components: 1
