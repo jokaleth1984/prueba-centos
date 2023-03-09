@@ -18,6 +18,6 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
       with:
         source: "tests/*"
-        target: "test2"
+        target: "test3"
         strip_components: 1
 
