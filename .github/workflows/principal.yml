@@ -17,7 +17,7 @@ jobs:
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
       with:
-        source: "/tests/prueba2000.txt"
+        source: "tests/prueba2000.txt"
         target: "test2"
         strip_components: 1
 
