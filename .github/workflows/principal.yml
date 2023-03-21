@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
  steps:
-      name: Copiar el contenido del repositorio con scp
-      uses: appleboy/scp-action@v0.1.4
+     - name: Copiar el contenido del repositorio con scp
+     - uses: appleboy/scp-action@v0.1.4
       env:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
