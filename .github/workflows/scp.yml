@@ -13,7 +13,8 @@ jobs:
       env:
         KEY: ${{ secrets.SSHKEY }}
         HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.SSH_USER }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
       with:
         source: "*"
         target: "/home/ubuntu/app"
