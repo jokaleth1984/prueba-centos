@@ -8,16 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     - uses: actions/checkout@master
-     - name: Copiar el contenido del repositorio con scp
-       uses: appleboy/scp-action@master
-       env:
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
+    - name: Copy files via SCP
+      uses: appleboy/scp-action@master
+      env:
         KEY: ${{ secrets.SSHKEY }}
-       with:
-        source: "tests/*"
-        target: "test3"
-        strip_components: 1
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.SSH_USER }}
+      with:
+        source: "*"
+        target: "/home/ubuntu/app"
 
