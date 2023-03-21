@@ -15,7 +15,7 @@ jobs:
         HOST: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.KEY }}
+        KEY: ${{ secrets.SSHKEY }}
       with:
         source: "tests/*"
         target: "test3"
